@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&family=Lobster&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik+Scribble&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Set background color to black */
+  color: white; /* Set text color to white */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.vid-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust height to viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vid {
+  max-width: 800px; /* Adjust maximum width as needed */
+  width: 100%;
+  height: auto;
+}
+
+.border-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.border-animation:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border: 2px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #fff;
+  animation: borderAnimation 3s linear infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+      box-shadow: 0 0 10px #fff;
+  }
+  50% {
+      box-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff;
+  }
+  100% {
+      box-shadow: 0 0 10px #fff;
+  }
+}
+
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 20px; /* Adjust as needed to ensure space for the button */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 45px;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+  opacity: 1; /* Initially visible */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.scroll-down-arrow span {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid white; /* Arrow color */
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-10px);
+  }
+  60% {
+      transform: translateY(-5px);
+  }
+}
+
+.hide-arrow {
+  opacity: 0;
+}
+
+/*! code for button */
+
+a {
+  position: absolute; /* Position the button absolutely */
+  bottom:-57px; /* Position the button at the bottom */
+  left: 51%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #fff; /* Set button text color to match the background */
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  padding: 10px 30px;
+  transition: 0.5s;
+}
+
+a:hover {
+  background: var(--clr);
+  color: var(--clr);
+  letter-spacing: 0.25em;
+  box-shadow: 0 0 35px var(--clr);
+}
+
+a:before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #27282c;
+}
+
+a span {
+  position: relative;
+  z-index: 1;
+}
+
+a i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+a i::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 10px;
+  height: 4px;
+  background: #27282c;
+  transform: translateX(-50%) skew(325deg);
+  transition: 0.5s;
+}
+
+a:hover i::before {
+  width: 20px;
+  left: 20%;
+}
+
+a i::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 10px;
+  height: 4px;
+  background: #27282c;
+  transform: translateX(-50%) skew(325deg);
+  transition: 0.5s;
+}
+
+a:hover i::after {
+  width: 20px;
+  left: 80%;
+}
